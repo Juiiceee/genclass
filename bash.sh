@@ -9,7 +9,7 @@ echo "Enter the class name:"
 read className
 
 filemaj=$(echo "$fileName" | tr '[:lower:]' '[:upper:]')
-cat >> ${fileName}hpp << EOF
+cat >> ${fileName}.hpp << EOF
 #ifndef ${filemaj}_HPP
 # define ${filemaj}_HPP
 # include <iostream>

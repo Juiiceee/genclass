@@ -9,9 +9,9 @@ echo "Enter the class name:"
 read className
 
 filemaj=$(echo "$fileName" | tr '[:lower:]' '[:upper:]')
-cat >> ${fileName}.hpp << EOF
-#ifndef ${filemaj}.HPP
-# define ${filemaj}.HPP
+cat >> ${fileName}hpp << EOF
+#ifndef ${filemaj}_HPP
+# define ${filemaj}_HPP
 # include <iostream>
 # include <string>
 EOF
@@ -46,7 +46,9 @@ $className::$className(const $className &obj)
 
 $className &$className::operator=(const $className &obj)
 {
-	if (this != &obj) {
+	if (this != &obj)
+	{
+		
 	}
 	return *this;
 }

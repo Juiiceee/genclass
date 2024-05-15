@@ -19,6 +19,8 @@ cat >> ${fileName}.hpp << EOF
 
 class $className
 {
+	private:
+		
 	public:
 		$className();
 		$className(const $className &obj);

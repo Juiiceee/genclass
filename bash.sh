@@ -5,9 +5,15 @@ read fileName
 
 echo "Creating ${fileName}.hpp..."
 
-echo "Enter the class name:"
-read className
+echo "Is the name of your file the same as your class? y/n"
+read yes
 
+if [ "$yes" = "y" ]; then
+	className=$fileName;
+else
+	echo "Enter the class name:"
+	read className
+fi
 filemaj=$(echo "$fileName" | tr '[:lower:]' '[:upper:]')
 cat >> ${fileName}.hpp << EOF
 #ifndef ${filemaj}_HPP
@@ -38,16 +44,19 @@ cat > ${fileName}.cpp << EOF
 
 $className::$className()
 {
-
+	std::cout << "$className default constructor called\n";
 }
 
 $className::$className(const $className &obj)
 {
-	
+	std::cout << "Copy constructor called\n";
+	*this = obj;
+	return ;
 }
 
 $className &$className::operator=(const $className &obj)
 {
+	std::cout << "Copy assignment operator called\n";
 	if (this != &obj)
 	{
 		
@@ -57,7 +66,7 @@ $className &$className::operator=(const $className &obj)
 
 $className::~$className()
 {
-	
+	std::cout << "Destructor called\n";
 }
 EOF
 

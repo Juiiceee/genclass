@@ -66,7 +66,7 @@ $className &$className::operator=(const $className &obj)
 
 $className::~$className()
 {
-	std::cout << "Destructor called\n";
+	std::cout << "Destructor of $className called\n";
 }
 EOF
 
